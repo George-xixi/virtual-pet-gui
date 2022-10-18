@@ -112,3 +112,48 @@ describe('feed', () => {
     expect(otherPet.hunger).toEqual(0);
   });
 });
+
+describe('checkUp', () => {
+
+  it('tells us if the pet is hungry', () => {
+    const pet = new Pet('mr meow');
+
+    pet.growUp();
+
+    expect(pet.checkUp()).toEqual('I am hungry');
+  });
+
+  it('tells us if the pet needs a walk', () => {
+
+    const pet = new Pet("mr meow");
+
+    pet.growUp();
+    pet.growUp();
+    pet.growUp();
+
+    pet.feed();
+    pet.feed();
+    pet.feed();
+    pet.feed();
+    pet.feed();
+
+    expect(pet.checkUp()).toEqual("I need a walk");
+  });
+
+  it("tells us if the pet is both hungry AND needs a walk", () => {
+
+    const pet = new Pet("mr meow");
+    pet.growUp();
+    pet.growUp();
+    pet.growUp();
+
+    expect(pet.checkUp()).toEqual("I am hungry AND I need a walk");
+  });
+
+  it("tells us if the pet does not need feeding nor walking", () => {
+
+    const pet = new Pet("mr meow");
+
+    expect(pet.checkUp()).toEqual("I feel great!")
+  })
+});
