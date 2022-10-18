@@ -155,5 +155,74 @@ describe('checkUp', () => {
     const pet = new Pet("mr meow");
 
     expect(pet.checkUp()).toEqual("I feel great!")
-  })
+  });
+});
+
+describe("isALive", () => {
+
+  it("tells us if the pet is dead due to not being walked", () => {
+
+    const pet = new Pet("miss paws");
+
+    pet.growUp();
+    pet.growUp();
+    pet.growUp();
+    pet.growUp();
+
+    pet.feed();
+    pet.feed();
+    pet.feed();
+    pet.feed();
+    pet.feed();
+    pet.feed();
+    pet.feed();
+
+    expect(pet.isALive()).toEqual(false)
+  });
+
+    it("tells us if the pet is dead due to hunger", () => {
+      const pet = new Pet("miss paws");
+
+      pet.growUp();
+      pet.growUp();
+
+      expect(pet.isALive()).toEqual(false);
+        });
+
+    it("tells us if the pet has reached 30 and died of old age", () => {
+      
+      const pet = new Pet('old dog');
+      
+      pet.age = 30;
+
+      expect(pet.isALive()).toEqual(false);
+      
+    });
+
+    it("tells us if the pet is still alive, given that its needs have been met and it is not too old", () => {
+
+      const pet = new Pet('young dog');
+      const otherpet = new Pet('middle aged dog');
+
+      pet.growUp();
+      otherpet.growUp();
+      otherpet.growUp();
+      otherpet.growUp();
+      otherpet.growUp();
+
+      otherpet.feed();
+      otherpet.feed();
+      otherpet.feed();
+      otherpet.feed();
+      otherpet.feed();
+
+      otherpet.walk();
+      otherpet.walk();
+      otherpet.walk();
+      otherpet.walk();
+      otherpet.walk();
+
+      expect(pet.isALive()).toEqual(true);
+      expect(otherpet.isALive()).toEqual(true);
+    });
 });

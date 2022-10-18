@@ -46,4 +46,12 @@ Pet.prototype.checkUp = function() {
   };
 };
 
+Pet.prototype.isALive = function() {
+  if (this.fitness <= 0 || this.hunger >= 10 || this.age >= 30) {
+    return false;
+  } else {
+    return true;
+  };
+};
+
 module.exports = Pet;
