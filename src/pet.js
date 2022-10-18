@@ -1,10 +1,11 @@
 
+const maximumFitness = 10;
 
 function Pet(name) {
   this.name = name
   this.age = 0
   this.hunger = 0
-  this.fitness = 10
+  this.fitness = maximumFitness
 };
 
 Pet.prototype.growUp = function() {
@@ -17,11 +18,17 @@ Pet.prototype.growUp = function() {
 };
 
 Pet.prototype.walk = function() {
-  const increaseInFitnessPerWalk = 4;
-  this.fitness += increaseInFitnessPerWalk;
-  if (this.fitness > 10) {
-    this.fitness = 10;
+  this.fitness += 4;
+  if (this.fitness > maximumFitness) {
+    this.fitness = maximumFitness;
   };
 };
+
+Pet.prototype.feed = function() {
+  this.hunger -= 3;
+  if (this.hunger < 0) {
+    this.hunger = 0;
+  }
+}
 
 module.exports = Pet;
