@@ -8,15 +8,20 @@ function Pet(name) {
 };
 
 Pet.prototype.growUp = function() {
-  this.age += 1;
-  this.hunger += 5;
-  this.fitness -= 3;
+  const numberOfYears = 1;
+  const increaseInHungerPerYear = 5;
+  const decreaseInFitnessPerYear = 3;
+  this.age += numberOfYears;
+  this.hunger += increaseInHungerPerYear * numberOfYears;
+  this.fitness -= decreaseInFitnessPerYear * numberOfYears;
 };
 
 Pet.prototype.walk = function() {
-  this.fitness += 4;
+  const increaseInFitnessPerWalk = 4;
+  this.fitness += increaseInFitnessPerWalk;
   if (this.fitness > 10) {
     this.fitness = 10;
   };
 };
+
 module.exports = Pet;
