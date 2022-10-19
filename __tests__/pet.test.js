@@ -177,7 +177,7 @@ describe("isALive", () => {
     pet.feed();
     pet.feed();
 
-    expect(pet.isALive()).toEqual(false)
+    expect(pet.isALive).toEqual(false)
   });
 
     it("tells us if the pet is dead due to hunger", () => {
@@ -186,7 +186,7 @@ describe("isALive", () => {
       pet.growUp();
       pet.growUp();
 
-      expect(pet.isALive()).toEqual(false);
+      expect(pet.isALive).toEqual(false);
         });
 
     it("tells us if the pet has reached 30 and died of old age", () => {
@@ -195,7 +195,7 @@ describe("isALive", () => {
       
       pet.age = 30;
 
-      expect(pet.isALive()).toEqual(false);
+      expect(pet.isALive).toEqual(false);
       
     });
 
@@ -222,7 +222,7 @@ describe("isALive", () => {
       otherpet.walk();
       otherpet.walk();
 
-      expect(pet.isALive()).toEqual(true);
-      expect(otherpet.isALive()).toEqual(true);
+      expect(pet.isALive).toEqual(true);
+      expect(otherpet.isALive).toEqual(true);
     });
 });
