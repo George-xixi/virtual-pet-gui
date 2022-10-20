@@ -1,5 +1,7 @@
 const Pet = require('../src/pet');
 
+let pet;
+
 describe("constructor", () => {
 
   beforeEach(() => {

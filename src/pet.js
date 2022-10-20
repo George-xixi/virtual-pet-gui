@@ -36,7 +36,6 @@ Pet.prototype.growUp = function() {
   this.age += 1;
   this.hunger += hunger_Increase;
   this.fitness -= fitness_Decrease;
-  
 };
 
 Pet.prototype.walk = function() {
