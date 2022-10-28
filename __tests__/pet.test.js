@@ -5,7 +5,7 @@ let pet;
 describe("constructor", () => {
 
   beforeEach(() => {
-    pet = new Pet('Fido');
+    pet = new Pet("Fido");
   });
 
   it("returns an object", () => {

@@ -28,7 +28,7 @@ Pet.prototype = {
 };
 
 Pet.prototype.growUp = function() {
-
+  
   if (!this.isAlive) {
     throw new Error(death_Error_Message);
   };
