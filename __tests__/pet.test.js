@@ -213,6 +213,10 @@ describe("isALive", () => {
 
 describe("adoptChild", () => {
 
+  let babyPet;
+  let secondBabyPet;
+  let youngestBabyPet;
+  
   beforeEach(() => {
     pet = new Pet("Fido");
     babyPet = new Pet("lil Fido");
