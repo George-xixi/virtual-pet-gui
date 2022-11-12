@@ -1,0 +1,24 @@
+html, body {
+  inline-size: 100%;
+  background-color:rgb(83, 80, 80) ;
+  font-family: "Comfortaa", cursive;
+  margin: 0;
+  padding: 0;
+  display:flex;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 60px;
+  text-align: center;
+  color:white;
+}
+
+#viewport {
+  inline-size: 600px;
+  block-size: 600px;
+  background-image: url(/images/background/12.JPG) ;
+  position: relative;
+  border-radius: 10px;
+}
