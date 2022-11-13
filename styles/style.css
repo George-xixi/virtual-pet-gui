@@ -21,4 +21,43 @@ h1 {
   background-image: url(/images/background/12.JPG) ;
   position: relative;
   border-radius: 10px;
+  display: flex;
+}
+
+#form {
+  background-color: rgba(1, 9, 28, 0.744);
+  inline-size: 100%;
+  display: grid;
+  align-content: flex-start;
+  padding-block-start: 150px;
+  color: white;
+  border-radius: inherit;
+  text-align: center;
+}
+
+#form > h2 {
+  inline-size: 600px;
+  font-size:35px;
+  border: 0;
+}
+
+#form > * {
+block-size: max-content;
+padding-block: 15px;
+inline-size: 300px;
+font-size: 20px;
+margin: 10px;
+justify-self: center;
+border-radius: 100vw;
+border: 8px solid grey;
+text-align: center;
+}
+
+::placeholder {
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+}
+
+#submit:focus {
+border: 8px solid black;
 }

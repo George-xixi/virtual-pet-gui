@@ -15,7 +15,18 @@
   <main>
     <h1>Virtual Pet</h1>
       <div id="viewport">
-        <div id="form-div"></div>
+          <form id="form">
+            <h2>Create your pet!</h2>
+            <input
+              id="petName"
+              name="petName"
+              type="text"
+              class="feedback-input"
+              placeholder="Name your pet..."
+            />
+            <input class="button" id="submit" type="submit" value="START!" />
+          </form>
+  
         <div id="clock"></div>
         <div id="stats-panel"></div>
         <div id="action-panel"></div>
@@ -23,7 +34,14 @@
   </main>
   <script src="src/controller.js"></script>
   <script>
-    const controller = new Controller();
+    // const controller = new Controller();
+    const form = document.querySelector("#form");
+
+    form.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      form.style.visibility = "hidden";
+    })
   </script>
 </body>
 </html>
