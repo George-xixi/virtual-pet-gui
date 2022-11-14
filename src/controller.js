@@ -39,7 +39,7 @@
         backgroundIndex += 1;
       }, 500);
     }
-    renderCat(){
+    renderCat() {
       const catElement = document.createElement("img");
       const viewport = document.querySelector("#viewport");
       catElement.src = "./images/cat.png";
@@ -47,7 +47,27 @@
       viewport.appendChild(catElement);
 
     }
+    renderStatusBox() {
+      const statusBoxElement = document.createElement("div");
+      const hungerElement = document.createElement("img");
+      const ageElement = document.createElement("h3");
+      const fitnessElement = document.createElement("img");
+      const viewport = document.querySelector("#viewport");
+      statusBoxElement.id = "status-box";
+      viewport.appendChild(statusBoxElement);
+      const statusBoxDiv = document.querySelector("#status-box")
+      hungerElement.src = "./images/hunger/hunger10.png";
+      ageElement.innerText = "Age";
+      fitnessElement.src ="./images/fitness/fit10.png";
+      statusBoxDiv.appendChild(hungerElement);
+      statusBoxDiv.appendChild(ageElement);
+      statusBoxDiv.appendChild(fitnessElement);
+
+
+      
+    }
   }
+
 
   if (typeof module !== "undefined" && module.exports) {
     module.exports = Controller;

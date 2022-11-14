@@ -67,6 +67,21 @@ border: 8px solid black;
 #cat {
   position: absolute;
   inline-size: 300px;
-  inset-block-end: 90px;
+  inset-block-end: 150px;
+}
 
+#status-box {
+  inline-size: 580px;
+  block-size: 130px;
+  margin-inline: 10px;
+  background-color: rgba(255, 255, 255, 0.481);
+  inset-block-end: 10px;
+  border-radius: 10px;
+  position: absolute;
+  display:grid;
+  grid-template-columns: 5fr 2fr 5fr;
+}
+
+#status-box > img {
+  inline-size: 200px;
 }

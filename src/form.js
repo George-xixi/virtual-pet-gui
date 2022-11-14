@@ -9,4 +9,5 @@ form.addEventListener("submit", (event) => {
   const controller = new Controller();
 
   controller.renderCat();
+  controller.renderStatusBox();
 })
