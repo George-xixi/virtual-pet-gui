@@ -1,3 +1,5 @@
+(function exportController() {
+
 const maximum_Fitness = 10;
 const fitness_Increase = 4;
 const fitness_Decrease = 3;
@@ -88,4 +90,9 @@ class Pet {
   };
 };
 
-module.exports = Pet;
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = Pet;
+} else {
+  window.Pet = Pet;
+}
+})();
