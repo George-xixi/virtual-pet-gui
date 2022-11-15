@@ -13,5 +13,4 @@ form.addEventListener("submit", (event) => {
 
   controller.renderCat();
   controller.renderStatusBox();
-  controller.renderNameBox();
 })

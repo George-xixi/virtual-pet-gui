@@ -39,6 +39,10 @@ class Pet {
     this.age += 1;
     this.hunger += hunger_Increase;
     this.fitness -= fitness_Decrease;
+
+    if (this.fitness < minimum_Fitness) {
+    this.fitness = 0;
+    }
   };
 
   walk() {
