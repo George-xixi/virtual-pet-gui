@@ -1,6 +1,7 @@
 (function exportController() {
   class Controller {
-    constructor() {
+    constructor(pet) {
+      this.pet = pet;
       this.dayCycle();
     }
 
@@ -48,20 +49,21 @@
 
     }
     renderStatusBox() {
-      const ageDiv = document.querySelector("#age-div");
+      const infoDiv = document.querySelector("#info-div");
       const hungerElement = document.createElement("img");
       const ageElement = document.createElement("h3");
       const fitnessElement = document.createElement("img");
       const statusBoxDiv = document.querySelector("#status-box");
+      const petAge = this.pet.age;
       statusBoxDiv.style.visibility = "visible";
       hungerElement.src = "./images/hunger/hungerbar10.png";
-      ageElement.innerText = "age";
+      ageElement.innerText = "age " + petAge;
       fitnessElement.src ="./images/fitness/fit10.png";
-
-      ageDiv.appendChild(ageElement);
-
-
-      
+      const nameElement = document.createElement("h3");
+      const petName = this.pet.name;
+      nameElement.innerHTML = petName;
+      infoDiv.appendChild(nameElement);
+      infoDiv.appendChild(ageElement);
     }
   }
 
