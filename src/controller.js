@@ -48,20 +48,17 @@
 
     }
     renderStatusBox() {
-      const statusBoxElement = document.createElement("div");
+      const ageDiv = document.querySelector("#age-div");
       const hungerElement = document.createElement("img");
       const ageElement = document.createElement("h3");
       const fitnessElement = document.createElement("img");
-      const viewport = document.querySelector("#viewport");
-      statusBoxElement.id = "status-box";
-      viewport.appendChild(statusBoxElement);
-      const statusBoxDiv = document.querySelector("#status-box")
-      hungerElement.src = "./images/hunger/hunger10.png";
-      ageElement.innerText = "Age";
+      const statusBoxDiv = document.querySelector("#status-box");
+      statusBoxDiv.style.visibility = "visible";
+      hungerElement.src = "./images/hunger/hungerbar10.png";
+      ageElement.innerText = "age";
       fitnessElement.src ="./images/fitness/fit10.png";
-      statusBoxDiv.appendChild(hungerElement);
-      statusBoxDiv.appendChild(ageElement);
-      statusBoxDiv.appendChild(fitnessElement);
+
+      ageDiv.appendChild(ageElement);
 
 
       
