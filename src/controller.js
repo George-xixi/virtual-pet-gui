@@ -53,14 +53,15 @@
       }, 2000);
     }
     
-    renderCat() {
-      const catElement = document.createElement("img");
+    renderPet(petType) {
+      const petElement = document.createElement("img");
       const viewport = document.querySelector("#viewport");
-      catElement.src = "./images/cat.png";
-      catElement.className = "cat";
-      viewport.appendChild(catElement);
 
+      petElement.src = `./images/${petType}.png`;
+      petElement.className = "pet";
+      viewport.appendChild(petElement);
     }
+
     renderStatusBox() {
       const ageElement = document.querySelector("#age");
       const nameElement = document.querySelector("#name");
@@ -74,19 +75,17 @@
     ageUp() {
       const pet = this.pet;
       const ageElement = document.querySelector("#age");
-      const catElement = document.getElementsByClassName("cat");
       let age;
       window.setInterval(() => {
         pet.growUp()
         age = pet.age;
         
         console.log(age);
-        console.log(catElement);
         ageElement.innerText = "age " + age;
         this.updateHungerBar();
         this.updateFitnessBar();
         
-      }, 2000)
+      }, 48000)
     }
     updateHungerBar() {
       const pet = this.pet;
@@ -114,11 +113,10 @@
     }
     checkIfAlive() {
       const pet = this.pet;
-      const catElement = document.getElementsByClassName("cat");
+      const petElement = document.getElementsByClassName("pet");
       window.setInterval(() => {
         if (pet.isAlive == false) {
-          console.log(catElement);
-          catElement[0].src = "./images/grave.png";
+          petElement[0].src = "./images/grave.png";
         }
       }, 500)
     }

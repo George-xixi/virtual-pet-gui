@@ -28,11 +28,11 @@ h1 {
 }
 
 #form {
-  background-color: rgba(1, 9, 28, 0.744);
+  background-color: rgba(1, 9, 28, 0.838);
   inline-size: 100%;
   display: grid;
   align-content: flex-start;
-  padding-block-start: 150px;
+  padding-block-start: 100px;
   color: white;
   border-radius: inherit;
   text-align: center;
@@ -40,8 +40,9 @@ h1 {
 
 #form > h2 {
   inline-size: 600px;
-  font-size:35px;
+  font-size:50px;
   border: 0;
+  color: white;
 }
 
 #form > * {
@@ -57,6 +58,12 @@ text-align: center;
 color: grey;
 }
 
+form > #radio-div {
+  background-color: white;
+}
+
+
+
 ::placeholder {
   text-align: center;
   font-family: "Comfortaa", cursive;
@@ -66,9 +73,10 @@ color: grey;
 border: 8px solid black;
 }
 
-.cat {
+.pet {
   position: absolute;
   inline-size: 250px;
+  max-block-size: 200px;
   inset-block-end: 150px;
   inset-inline: 10px;
 }
