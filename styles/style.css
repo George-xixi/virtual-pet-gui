@@ -76,9 +76,20 @@ border: 8px solid black;
 .pet {
   position: absolute;
   inline-size: 250px;
-  max-block-size: 200px;
   inset-block-end: 150px;
   inset-inline: 10px;
+}
+
+#duck {
+  block-size: 150px;
+  inline-size: 150px;
+  inset-inline: 60px;
+}
+
+#turtle {
+  block-size: 150px;
+  inline-size: 150px;
+  inset-inline: 60px;
 }
 
 #status-box {
@@ -123,4 +134,12 @@ border: 8px solid black;
 #status-box > div > h3 {
   font-size: 30px;
   margin-block: 5px;
+}
+
+#tea {
+  block-size: 70px;
+  inline-size: 70px;
+  position: relative;
+  inset-inline-end: 150px; 
+  inset-block-start: 355px;
 }

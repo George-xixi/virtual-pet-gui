@@ -12,7 +12,6 @@ form.addEventListener("submit", (event) => {
 
   form.remove();
   const controller = new Controller(pet);
-  console.log(petType);
   controller.renderPet(petType.value);
   controller.renderStatusBox();
 })

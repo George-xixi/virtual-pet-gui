@@ -59,6 +59,7 @@
 
       petElement.src = `./images/${petType}.png`;
       petElement.className = "pet";
+      petElement.id = petType;
       viewport.appendChild(petElement);
     }
 
@@ -102,9 +103,32 @@
       fitnessImg.src = `./images/fitness/fit${fitnessNum}.png`;
     }
     feedPet() {
+      if (document.querySelector("#tea")) {
+        console.log("Please wait");
+      } else {
       const pet = this.pet;
       pet.feed();
       this.updateHungerBar();
+      this.drinkBoba();
+    }}
+    drinkBoba() {
+      const viewport = document.querySelector("#viewport");
+      const tea = document.createElement("img");
+
+      let teaIndex = 1;
+      tea.id = "tea";
+      tea.class = "meal";
+      tea.src = "./images/boba/boba1.png";
+      viewport.appendChild(tea);
+
+      window.setInterval(() => {
+        tea.src = `./images/boba/boba${teaIndex}.png`;
+        teaIndex += 1;
+      }, 170)
+
+      setTimeout(() => {
+        tea.remove();
+      }, 4000)
     }
     playPet() {
       const pet = this.pet;
