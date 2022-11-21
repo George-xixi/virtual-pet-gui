@@ -103,10 +103,20 @@
       fitnessImg.src = `./images/fitness/fit${fitnessNum}.png`;
     }
     feedPet() {
-      if (document.querySelector("#tea")) {
-        console.log("Please wait");
-      } else {
       const pet = this.pet;
+      const catElement = document.querySelector("#cat");
+      const duckElement = document.querySelector("#duck");
+      if (document.querySelector("#food")) {
+        console.log("Please wait");
+      } else if (catElement) {
+        pet.feed();
+        this.updateHungerBar();
+        this.eatFish();
+      } else if (duckElement) {
+        pet.feed();
+        this.updateHungerBar();
+        this.eatBread();
+      } else {
       pet.feed();
       this.updateHungerBar();
       this.drinkBoba();
@@ -116,19 +126,59 @@
       const tea = document.createElement("img");
 
       let teaIndex = 1;
-      tea.id = "tea";
-      tea.class = "meal";
+      tea.id = "food";
       tea.src = "./images/boba/boba1.png";
       viewport.appendChild(tea);
 
-      window.setInterval(() => {
+      const bobaAnimation = window.setInterval(() => {
         tea.src = `./images/boba/boba${teaIndex}.png`;
         teaIndex += 1;
       }, 170)
 
       setTimeout(() => {
         tea.remove();
+        clearInterval(bobaAnimation);
       }, 4000)
+    }
+    eatFish(){
+      const viewport = document.querySelector("#viewport");
+      const fish = document.createElement("img");
+
+      let fishIndex = 1;
+      fish.id = "food";
+      fish.src = "./images/fish/fish1.png";
+      viewport.appendChild(fish);
+      fish.style.insetInlineEnd = "100px";
+      fish.style.insetBlockStart = "365px";
+      const fishAnimation = window.setInterval(() => {
+        fish.src = `./images/fish/fish${fishIndex}.png`;
+        fishIndex += 1;
+      }, 170)
+
+      setTimeout(() => {
+        fish.remove();
+        clearInterval(fishAnimation);
+      }, 4000)
+    }
+    eatBread() {
+      const viewport = document.querySelector("#viewport");
+      const bread = document.createElement("img");
+
+      let breadIndex = 1;
+      bread.id = "food";
+      bread.src = "./images/bread/bread1.png";
+      viewport.appendChild(bread);
+      bread.style.insetInlineEnd = "130px";
+      bread.style.insetBlockStart = "340px";
+      const breadAnimation = window.setInterval(() => {
+        bread.src = `./images/bread/bread${breadIndex}.png`;
+        breadIndex += 1;
+      }, 170)
+
+      setTimeout(() => {
+        bread.remove();
+        clearInterval(breadAnimation);
+      }, 4100)
     }
     playPet() {
       const pet = this.pet;
