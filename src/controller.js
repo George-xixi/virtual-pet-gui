@@ -50,7 +50,7 @@
           backgrounds[backgroundIndex % backgrounds.length]
         }')`;
         backgroundIndex += 1;
-      }, 2000);
+      }, 2000); // <--- Increase this number to make the day longer, decrease to make the day shorter
     }
     
     renderPet(petType) {
@@ -86,7 +86,7 @@
         this.updateHungerBar();
         this.updateFitnessBar();
         
-      }, 48000)
+      }, 48000) // Decrease this number to age more quickly and make the game more difficult
     }
     updateHungerBar() {
       const pet = this.pet;
@@ -191,6 +191,8 @@
       window.setInterval(() => {
         if (pet.isAlive == false) {
           petElement[0].src = "./images/grave.png";
+          this.updateFitnessBar();
+          this.updateHungerBar();
         }
       }, 500)
     }
