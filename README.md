@@ -26,8 +26,8 @@ npm install
 
 ## Some key controls
 in src folder:
-- controller.js : line 53 : Changing this number will allow you to control the speed of the day cycle
-- controller.js : line 89 : Changing this numnber will allow you to control the speed of aging (faster aging is more difficult)
+- controller.js : line 53 : Changing this number will allow you to control the speed of the day cycle.
+- controller.js : line 89 : Changing this numnber will allow you to control the speed of aging (faster aging is more difficult.)
 
 
 - pet.js : line 3-13 : Changing these numbers will allow you to fine tune the game, how much eating replenishes hunger and how impactful excersise is. 
