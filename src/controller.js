@@ -103,7 +103,7 @@
         ageElement.innerText = "age " + age;
         this.updateHungerBar();
         this.updateFitnessBar();
-      }, 6000); // <--- Decrease this number to age more quickly and make the game more difficult
+      }, 12000); // <--- Decrease this number to age more quickly and make the game more difficult
     }
     updateHungerBar() {
       const pet = this.pet;
