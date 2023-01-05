@@ -103,22 +103,30 @@
         ageElement.innerText = "age " + age;
         this.updateHungerBar();
         this.updateFitnessBar();
-      }, 12000); // <--- Decrease this number to age more quickly and make the game more difficult
+      }, 6000); // <--- Decrease this number to age more quickly and make the game more difficult
     }
     updateHungerBar() {
       const pet = this.pet;
-      const hungerNum = Math.abs(pet.hunger - 10);
       const hungerImg = document.querySelector("#hunger-img");
+      let hungerNum = pet.hunger
 
+      if (hungerNum > 10) {
+        hungerImg.src = `./images/hunger/hungerbar0.png`;
+      } else {
+      hungerNum = Math.abs(pet.hunger - 10);
       hungerImg.src = `./images/hunger/hungerbar${hungerNum}.png`;
+      }
     }
     updateFitnessBar() {
       const pet = this.pet;
       const fitnessNum = pet.fitness;
       const fitnessImg = document.querySelector("#fitness-img");
-
-      fitnessImg.src = `./images/fitness/fit${fitnessNum}.png`;
+      if (fitnessNum < 0) {
+        fitnessImg.src = `./images/fitness/fit0.png`;
+      } else {
+      fitnessImg.src =  `./images/fitness/fit${fitnessNum}.png`;
     }
+  }
     feedPet() {
       const pet = this.pet;
       const playElement = document.querySelector("#play");
@@ -321,6 +329,10 @@
           petElement[0].src = "./images/grave.png";
           this.updateFitnessBar();
           this.updateHungerBar();
+          console.log(pet.age);
+          console.log(pet.hunger + "hunger");
+          console.log(pet.fitness + "fitness");
+
         }
       }, 500);
     }
