@@ -155,7 +155,7 @@
       const fishAnimation = window.setInterval(() => {
         fish.src = `./images/fish/fish${fishIndex}.png`;
         fishIndex += 1;
-      }, 170);
+      }, 140);
 
       setTimeout(() => {
         fish.remove();
