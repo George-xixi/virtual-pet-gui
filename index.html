@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,48 +11,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600&display=swap" rel="stylesheet">
   <title>Virtual Pet</title>
 </head>
+
 <body>
   <main>
     <h1>Virtual Pet</h1>
-      <div id="viewport">
-          <form id="form">
-            <h2>Create your pet!</h2>
-            <div id="radio-div"> 
-              <input type="radio" id="cat-button" name="pettype" value="cat">
-              <label for="cat-button">cat</label>
-              <input type="radio" id="duck-button" name="pettype" value="duck">
-              <label for="duck-button">duck</label>
-              <input type="radio" id="turtle-button" name="pettype" value="turtle">
-              <label for="turtle-button">turtle</label>
-            </div>
-            <input
-              id="petName"
-              name="petName"
-              type="text"
-              placeholder="Name your pet..."
-            />
-            <input class="button" id="submit" type="submit" value="START!" />
-          </form>
-  
-        <div id="name-box"></div>
-        <div id="status-box">
-          <div id="hunger-div">
-            <img id="hunger-img" src="./images/hunger/hungerbar10.png"/>
-            <button id="feed-button">feed</button>
-          </div>
-          <div id="info-div">
-            <h3 id="name"></h3>
-            <h3 id="age"></h3>
-          </div>
-          <div id="fitness-div">
-            <img id="fitness-img" src="./images/fitness/fit10.png"/>
-            <button id="play-button">play</button>
-          </div>
+    <div id="viewport">
+      <form id="form">
+        <h2>Create your pet!</h2>
+        <div id="radio-div">
+          <input type="radio" id="cat-button" name="pettype" value="cat">
+          <label for="cat-button">cat</label>
+          <input type="radio" id="duck-button" name="pettype" value="duck">
+          <label for="duck-button">duck</label>
+          <input type="radio" id="turtle-button" name="pettype" value="turtle">
+          <label for="turtle-button">turtle</label>
+        </div>
+        <input id="petName" name="petName" type="text" placeholder="Name your pet..." />
+        <input class="button" id="submit" type="submit" value="START!" />
+      </form>
+
+      <div id="status-box">
+        <div id="hunger-div">
+          <img id="hunger-img" src="./images/hunger/hungerbar10.png" />
+          <button id="feed-button">feed</button>
+        </div>
+        <div id="info-div">
+          <h3 id="name"></h3>
+          <h3 id="age"></h3>
+        </div>
+        <div id="fitness-div">
+          <img id="fitness-img" src="./images/fitness/fit10.png" />
+          <button id="play-button">play</button>
         </div>
       </div>
+      <div id="holiday-selector">
+        <button id="moon-button">to the moon!</button>
+        <button>yee-haw!</button>
+        <button>hit the slopes</button>
+      </div>
+    </div>
   </main>
   <script src="src/controller.js"></script>
   <script src="src/form.js"></script>
   <script src="src/pet.js"></script>
 </body>
+
 </html>

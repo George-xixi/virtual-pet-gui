@@ -3,6 +3,7 @@
     constructor(pet) {
       const feedButton = document.querySelector("#feed-button");
       const playButton = document.querySelector("#play-button");
+      const moonButton = document.querySelector("#moon-button");
 
       this.pet = pet;
       this.dayCycle();
@@ -15,6 +16,10 @@
       playButton.addEventListener("click", () => {
         this.playPet();
       });
+      moonButton.addEventListener("click", () => {
+        this.moonHoliday();
+      });
+
     }
 
     dayCycle() {
@@ -72,6 +77,12 @@
       ageElement.innerText = "age " + petAge;
       const petName = this.pet.name;
       nameElement.innerHTML = petName;
+    }
+    renderHolidaySelector() {
+      const holidaySelectorDiv = document.querySelector("#holiday-selector");
+      holidaySelectorDiv.style.visibility = "visible";
+      holidaySelectorDiv.style.position = "absolute";
+      holidaySelectorDiv.style.inlineSize = "600px";
     }
     ageUp() {
       const pet = this.pet;
@@ -155,7 +166,7 @@
       const fishAnimation = window.setInterval(() => {
         fish.src = `./images/fish/fish${fishIndex}.png`;
         fishIndex += 1;
-      }, 140);
+      }, 135);
 
       setTimeout(() => {
         fish.remove();
@@ -305,6 +316,20 @@
           this.updateHungerBar();
         }
       }, 500);
+    }
+    moonHoliday() {
+      const viewport = document.querySelector("#viewport");
+      const moonImg = document.createElement("img");
+
+      moonImg.src = "./images/moonbackground.png";
+      moonImg.style.position = "fixed";
+      moonImg.style.zIndex = "5";
+
+      viewport.appendChild(moonImg);
+
+      setTimeout(() => {
+        moonImg.remove();
+      }, 10000)
     }
   }
 

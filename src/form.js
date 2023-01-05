@@ -14,4 +14,5 @@ form.addEventListener("submit", (event) => {
   const controller = new Controller(pet);
   controller.renderPet(petType.value);
   controller.renderStatusBox();
+  controller.renderHolidaySelector();
 })
