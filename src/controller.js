@@ -11,10 +11,10 @@
 
       feedButton.addEventListener("click", () => {
         this.feedPet();
-      })
+      });
       playButton.addEventListener("click", () => {
         this.playPet();
-      })
+      });
     }
 
     dayCycle() {
@@ -52,7 +52,7 @@
         backgroundIndex += 1;
       }, 2000); // <--- Increase this number to make the day longer, decrease to make the day shorter
     }
-    
+
     renderPet(petType) {
       const petElement = document.createElement("img");
       const viewport = document.querySelector("#viewport");
@@ -78,25 +78,24 @@
       const ageElement = document.querySelector("#age");
       let age;
       window.setInterval(() => {
-        pet.growUp()
+        pet.growUp();
         age = pet.age;
-        
+
         console.log(age);
         ageElement.innerText = "age " + age;
         this.updateHungerBar();
         this.updateFitnessBar();
-        
-      }, 48000) // Decrease this number to age more quickly and make the game more difficult
+      }, 48000); // <--- Decrease this number to age more quickly and make the game more difficult
     }
     updateHungerBar() {
       const pet = this.pet;
       const hungerNum = Math.abs(pet.hunger - 10);
-      const hungerImg = document.querySelector("#hunger-img")
+      const hungerImg = document.querySelector("#hunger-img");
 
       hungerImg.src = `./images/hunger/hungerbar${hungerNum}.png`;
     }
     updateFitnessBar() {
-      const pet = this.pet
+      const pet = this.pet;
       const fitnessNum = pet.fitness;
       const fitnessImg = document.querySelector("#fitness-img");
 
@@ -119,10 +118,11 @@
         this.updateHungerBar();
         this.eatBread();
       } else {
-      pet.feed();
-      this.updateHungerBar();
-      this.drinkBoba();
-    }}
+        pet.feed();
+        this.updateHungerBar();
+        this.drinkBoba();
+      }
+    }
     drinkBoba() {
       const viewport = document.querySelector("#viewport");
       const tea = document.createElement("img");
@@ -135,14 +135,14 @@
       const bobaAnimation = window.setInterval(() => {
         tea.src = `./images/boba/boba${teaIndex}.png`;
         teaIndex += 1;
-      }, 170)
+      }, 170);
 
       setTimeout(() => {
         tea.remove();
         clearInterval(bobaAnimation);
-      }, 4000)
+      }, 4000);
     }
-    eatFish(){
+    eatFish() {
       const viewport = document.querySelector("#viewport");
       const fish = document.createElement("img");
 
@@ -155,12 +155,12 @@
       const fishAnimation = window.setInterval(() => {
         fish.src = `./images/fish/fish${fishIndex}.png`;
         fishIndex += 1;
-      }, 170)
+      }, 170);
 
       setTimeout(() => {
         fish.remove();
         clearInterval(fishAnimation);
-      }, 4000)
+      }, 4000);
     }
     eatBread() {
       const viewport = document.querySelector("#viewport");
@@ -180,29 +180,34 @@
       setTimeout(() => {
         bread.remove();
         clearInterval(breadAnimation);
-      }, 4100)
+      }, 4100);
     }
     playPet() {
       const pet = this.pet;
       const playElement = document.querySelector("#play");
       const foodElement = document.querySelector("#food");
       const duckElement = document.querySelector("#duck");
+      const catElement = document.querySelector("#cat");
       if (foodElement || playElement) {
         console.log("Please wait");
       } else if (duckElement) {
         pet.walk();
         this.updateFitnessBar();
         this.playBasketBall();
+      } else if (catElement) {
+        pet.walk();
+        this.updateFitnessBar();
+        this.treadmillRun();
       } else {
-      pet.walk();
-      this.updateFitnessBar();
+        pet.walk();
+        this.updateFitnessBar();
+      }
     }
-  };
     playBasketBall() {
       const viewport = document.querySelector("#viewport");
       const ball = document.createElement("img");
       let ballIndex = 1;
-      
+
       ball.src = "./images/ball/ball1.png";
       ball.id = "play";
       viewport.appendChild(ball);
@@ -215,13 +220,51 @@
       const ballAnimation = window.setInterval(() => {
         ball.src = `./images/ball/ball${ballIndex}.png`;
         ballIndex += 1;
-      }, 170)
+      }, 170);
 
       setTimeout(() => {
         ball.remove();
         clearInterval(ballAnimation);
       }, 6000);
-    };
+    }
+    treadmillRun() {
+      const viewport = document.querySelector("#viewport");
+      const treadmill = document.createElement("img")
+      const catElement = document.querySelector("#cat");
+      let runIndex = 0;
+
+      treadmill.src = "./images/treadmill/treadmill1.png";
+      treadmill.id = "play";
+      viewport.appendChild(treadmill);
+
+      catElement.style.visibility = "hidden";
+
+      treadmill.style.position = "relative";
+      treadmill.style.blockSize = "500px";
+      treadmill.style.insetInlineEnd = "170px";
+      treadmill.style.zIndex = "100";
+      const treadmillArray = [
+        "./images/treadmill/treadmill1.png",
+        "./images/treadmill/treadmill2.png",
+        "./images/treadmill/treadmill3.png",
+        "./images/treadmill/treadmill4.png",
+        "./images/treadmill/treadmill5.png",
+        "./images/treadmill/treadmill4.png",
+        "./images/treadmill/treadmill3.png",
+        "./images/treadmill/treadmill2.png",
+        "./images/treadmill/treadmill1.png"
+      ];
+      const runAnimation = window.setInterval(() => {
+        treadmill.src = treadmillArray[runIndex % treadmillArray.length];
+        runIndex += 1;
+      }, 170);
+
+      setTimeout(() => {
+        treadmill.remove();
+        clearInterval(this.runAnimation);
+        catElement.style.visibility = "visible";
+      }, 6000);
+    }
     checkIfAlive() {
       const pet = this.pet;
       const petElement = document.getElementsByClassName("pet");
@@ -231,7 +274,7 @@
           this.updateFitnessBar();
           this.updateHungerBar();
         }
-      }, 500)
+      }, 500);
     }
   }
 
