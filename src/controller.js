@@ -104,9 +104,11 @@
     }
     feedPet() {
       const pet = this.pet;
+      const playElement = document.querySelector("#play");
+      const foodElement = document.querySelector("#food");
       const catElement = document.querySelector("#cat");
       const duckElement = document.querySelector("#duck");
-      if (document.querySelector("#food")) {
+      if (playElement || foodElement) {
         console.log("Please wait");
       } else if (catElement) {
         pet.feed();
@@ -173,7 +175,7 @@
       const breadAnimation = window.setInterval(() => {
         bread.src = `./images/bread/bread${breadIndex}.png`;
         breadIndex += 1;
-      }, 170)
+      }, 170);
 
       setTimeout(() => {
         bread.remove();
@@ -182,9 +184,44 @@
     }
     playPet() {
       const pet = this.pet;
+      const playElement = document.querySelector("#play");
+      const foodElement = document.querySelector("#food");
+      const duckElement = document.querySelector("#duck");
+      if (foodElement || playElement) {
+        console.log("Please wait");
+      } else if (duckElement) {
+        pet.walk();
+        this.updateFitnessBar();
+        this.playBasketBall();
+      } else {
       pet.walk();
       this.updateFitnessBar();
     }
+  };
+    playBasketBall() {
+      const viewport = document.querySelector("#viewport");
+      const ball = document.createElement("img");
+      let ballIndex = 1;
+      
+      ball.src = "./images/ball/ball1.png";
+      ball.id = "play";
+      viewport.appendChild(ball);
+
+      ball.style.position = "relative";
+      ball.style.inlineSize = "325px";
+      ball.style.blockSize = "325px";
+      ball.style.insetBlockStart = "100px";
+      ball.style.zIndex = "100";
+      const ballAnimation = window.setInterval(() => {
+        ball.src = `./images/ball/ball${ballIndex}.png`;
+        ballIndex += 1;
+      }, 170)
+
+      setTimeout(() => {
+        ball.remove();
+        clearInterval(ballAnimation);
+      }, 6000);
+    };
     checkIfAlive() {
       const pet = this.pet;
       const petElement = document.getElementsByClassName("pet");
