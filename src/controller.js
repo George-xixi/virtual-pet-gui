@@ -201,6 +201,7 @@
       } else {
         pet.walk();
         this.updateFitnessBar();
+        this.playBoomerang();
       }
     }
     playBasketBall() {
@@ -264,6 +265,35 @@
         clearInterval(this.runAnimation);
         catElement.style.visibility = "visible";
       }, 6000);
+    }
+    playBoomerang() {
+      const viewport = document.querySelector("#viewport");
+      const boomerang = document.createElement("img");
+      const turtleElement = document.querySelector("#turtle");
+
+      let boomerIndex = 1;
+
+      boomerang.src = "./images/boomerang/boomerang1.png";
+      boomerang.id = "play";
+      viewport.appendChild(boomerang);
+
+      turtleElement.style.visibility = "hidden";
+
+      boomerang.style.position = "relative";
+      boomerang.style.blockSize = "400px";
+      boomerang.style.insetBlockStart = "145px";
+      boomerang.style.insetInlineStart = "75px";
+      boomerang.style.zIndex = "100";
+      const boomerangAnimation = window.setInterval(() => {
+        boomerang.src = `./images/boomerang/boomerang${boomerIndex}.png`;
+        boomerIndex += 1;
+      }, 170);
+
+      setTimeout(() => {
+        boomerang.remove();
+        clearInterval(boomerangAnimation);
+        turtleElement.style.visibility = "visible";
+      }, 5000);
     }
     checkIfAlive() {
       const pet = this.pet;
