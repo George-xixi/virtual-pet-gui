@@ -4,6 +4,8 @@
       const feedButton = document.querySelector("#feed-button");
       const playButton = document.querySelector("#play-button");
       const moonButton = document.querySelector("#moon-button");
+      const desertButton = document.querySelector("#desert-button");
+      const snowButton = document.querySelector("#snow-button");
 
       this.pet = pet;
       this.dayCycle();
@@ -19,7 +21,12 @@
       moonButton.addEventListener("click", () => {
         this.moonHoliday();
       });
-
+      desertButton.addEventListener("click", () => {
+        this.desertHoliday();
+      });
+      snowButton.addEventListener("click", () => {
+        this.snowHoliday();
+      })
     }
 
     dayCycle() {
@@ -96,7 +103,7 @@
         ageElement.innerText = "age " + age;
         this.updateHungerBar();
         this.updateFitnessBar();
-      }, 48000); // <--- Decrease this number to age more quickly and make the game more difficult
+      }, 12000); // <--- Decrease this number to age more quickly and make the game more difficult
     }
     updateHungerBar() {
       const pet = this.pet;
@@ -329,6 +336,34 @@
 
       setTimeout(() => {
         moonImg.remove();
+      }, 10000)
+    }
+    desertHoliday() {
+      const viewport = document.querySelector("#viewport");
+      const desertImg = document.createElement("img");
+
+      desertImg.src = "./images/desertbackground.png";
+      desertImg.style.position = "fixed";
+      desertImg.style.zIndex = "5";
+
+      viewport.appendChild(desertImg);
+
+      setTimeout(() => {
+        desertImg.remove();
+      }, 10000)
+    }
+    snowHoliday() {
+      const viewport = document.querySelector("#viewport");
+      const snowImg = document.createElement("img");
+
+      snowImg.src = "./images/snowbackground.png";
+      snowImg.style.position = "fixed";
+      snowImg.style.zIndex = "5";
+
+      viewport.appendChild(snowImg);
+
+      setTimeout(() => {
+        snowImg.remove();
       }, 10000)
     }
   }
