@@ -103,7 +103,7 @@
         ageElement.innerText = "age " + age;
         this.updateHungerBar();
         this.updateFitnessBar();
-      }, 12000); // <--- Decrease this number to age more quickly and make the game more difficult
+      }, 48000); // <--- Decrease this number to age more quickly and make the game more difficult
     }
     updateHungerBar() {
       const pet = this.pet;
@@ -365,6 +365,7 @@
       }, 10000)
     }
     snowHoliday() {
+      const pet = this.pet;
       const viewport = document.querySelector("#viewport");
       const snowImg = document.createElement("img");
 
@@ -373,6 +374,8 @@
       snowImg.style.zIndex = "5";
 
       viewport.appendChild(snowImg);
+      pet.walk()
+      this.updateFitnessBar();
 
       setTimeout(() => {
         snowImg.remove();
