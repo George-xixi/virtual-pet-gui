@@ -62,7 +62,7 @@
           backgrounds[backgroundIndex % backgrounds.length]
         }')`;
         backgroundIndex += 1;
-      }, 2000); // <--- Increase this number to make the day longer, decrease to make the day shorter
+      }, 4000); // <--- Increase this number to make the day longer, decrease to make the day shorter
     }
 
     renderPet(petType) {
