@@ -16,7 +16,6 @@ I have made 3 unique pet avatars, each with their own animations and interaction
 
 
 ## Download Instructions
-- Fork this repo
 ```
 git clone https://github.com/George-xixi/virtual-pet-gui
 ```
